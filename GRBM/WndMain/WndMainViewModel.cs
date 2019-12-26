@@ -5,5 +5,9 @@ namespace GRBM
 {
     public class WndMainViewModel : Screen
     {
+        public WndMainViewModel(IWindowManager windowManager)
+        {
+
+        }
     }
 }
