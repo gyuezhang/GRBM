@@ -15,12 +15,12 @@
         WindowState="{Binding windowStateBd, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
         StateChanged="{s:Action StateChangedCmd}"
         WindowStartupLocation="CenterScreen" WindowStyle="None">
-    
+
     <!--窗体边界-->
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="7" UseAeroCaptionButtons="True" CaptionHeight="68"/>
     </WindowChrome.WindowChrome>
-    
+
     <!--自定义样式-->
     <Window.Resources>
         <ResourceDictionary>
@@ -30,13 +30,13 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
-    
+
     <Grid Margin="{Binding marginBd}">
         <!--背景色-->
         <Grid.Background>
             <RadialGradientBrush>
-                <GradientStop Color="#FF2A90FF" Offset="0"/>
-                <GradientStop Color="#FF0066CC" Offset="1"/>
+                <GradientStop Color="#FF217831" Offset="0"/>
+                <GradientStop Color="#FF1E6C2C" Offset="1"/>
             </RadialGradientBrush>
         </Grid.Background>
 
@@ -133,19 +133,20 @@
 
             <!--占位-->
             <Border Grid.Column="4"/>
-
-            <!--<Button  Width="42" Height="42" Grid.Column="5" Command="{s:Action OnOpenUsrInfo}" Margin="10,12,20,10" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignIconButton}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}">
-            </Button>-->
-            <!--Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"-->
-            <materialDesign:PopupBox Width="42" Height="42" Grid.Column="5" Margin="10" Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+            <TextBlock Text="后台管理" FontSize="32" VerticalAlignment="Center" Margin="20,0" Grid.Column="5">
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <materialDesign:PopupBox Width="42" Height="42" Grid.Column="6" Margin="10" Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
                 PlacementMode="BottomAndAlignCentres"
                 WindowChrome.IsHitTestVisibleInChrome="True"
                 ToolTipService.Placement="Right">
                 <materialDesign:PopupBox.ToggleContent>
-                    <TextBlock Text="{Binding strAvaLetter}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
+                    <TextBlock Text="A" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
                 </materialDesign:PopupBox.ToggleContent>
                 <materialDesign:PopupBox.ToggleCheckedContent>
-                    <TextBlock Text="{Binding strAvaLetter}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" >
+                    <TextBlock Text="A" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" >
                         <TextBlock.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -157,10 +158,7 @@
                     </TextBlock>
                 </materialDesign:PopupBox.ToggleCheckedContent>
                 <StackPanel>
-                    <Button Foreground="#D500" Command="{s:Action OnLogout}" Margin="0,20,0,12" ToolTip="注销" ToolTipService.Placement="Left" ToolTipService.VerticalOffset="2">
-                        <materialDesign:PackIcon Kind="Logout" Width="24" Height="24" />
-                    </Button>
-                    <Button Foreground="#D500" Command="{s:Action OnExit}"  Margin="0,0,0,0" ToolTip="退出程序" ToolTipService.Placement="Left" ToolTipService.VerticalOffset="2">
+                    <Button Foreground="#D500" Command="{s:Action QuitCmd}"  Margin="0,20,0,12" ToolTip="退出程序" ToolTipService.Placement="Left" ToolTipService.VerticalOffset="2">
                         <materialDesign:PackIcon Kind="Close" Width="24" Height="24" />
                     </Button>
                 </StackPanel>

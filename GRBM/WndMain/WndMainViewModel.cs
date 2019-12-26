@@ -40,6 +40,11 @@ namespace GRBM
             marginBd = (windowStateBd == WindowState.Maximized) ? new Thickness(7, 7, 0, 0) : new Thickness(0, 0, 0, 0);
             dragImgVisibilityBd = (windowStateBd != WindowState.Maximized) ? Visibility.Visible : Visibility.Hidden;
         }
+
+        public void QuitCmd()
+        {
+            this.RequestClose();
+        }
         #endregion Actions
 
     }
