@@ -47,6 +47,9 @@
     <Reference Include="GRUtil">
       <HintPath>..\Build\Debug\GRUtil.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.1\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.3.0.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
@@ -80,6 +83,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Resource\Comm\PasswordHelper.cs" />
     <Compile Include="WndMain\WndMainView.xaml.cs">
       <DependentUpon>WndMainView.xaml</DependentUpon>
     </Compile>
