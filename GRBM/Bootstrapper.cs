@@ -1,11 +1,10 @@
 ﻿using System;
 using Stylet;
 using StyletIoC;
-using GRBM.Pages;
 
 namespace GRBM
 {
-    public class Bootstrapper : Bootstrapper<ShellViewModel>
+    public class Bootstrapper : Bootstrapper<WndLoginViewModel>
     {
         protected override void ConfigureIoC(IStyletIoCBuilder builder)
         {

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Windows;
 
-namespace GRBM.Pages
+namespace GRBM
 {
     /// <summary>
     /// Interaction logic for ShellView.xaml
     /// </summary>
-    public partial class ShellView : Window
+    public partial class WndLoginView : Window
     {
-        public ShellView()
+        public WndLoginView()
         {
             InitializeComponent();
         }
