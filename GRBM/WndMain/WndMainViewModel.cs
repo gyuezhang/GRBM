@@ -18,7 +18,7 @@ namespace GRBM
             maxWidthBd = SystemParameters.WorkArea.Width + 7;
 
             mainVmBd = new PageDashboardViewModel(this);
-
+            addrsBarVmBd = new CtrlAddrsBarViewModel(this);
         }
 
         #region SocketHandler
@@ -35,7 +35,7 @@ namespace GRBM
         public int menuBtnIndexBd { get; set; } = 1;
         public Visibility settingBtnVisibilityBd { get; set; } = Visibility.Hidden;
         public Screen mainVmBd { get; set; }
-        public Screen addrsBarVmBd { get; set; }
+        public CtrlAddrsBarViewModel addrsBarVmBd { get; set; }
         public SnackbarMessageQueue messageQueueBd { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(1.2));
 
         #endregion Bindings

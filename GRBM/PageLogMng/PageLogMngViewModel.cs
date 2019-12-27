@@ -2,7 +2,7 @@
 
 namespace GRBM
 {
-    class PageLogMngViewModel : Screen
+    public class PageLogMngViewModel : Screen
     {
         public PageLogMngViewModel(WndMainViewModel _wndMainVM)
         {

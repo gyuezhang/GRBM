@@ -2,7 +2,7 @@
 
 namespace GRBM
 {
-    class PageSettingViewModel : Screen
+    public class PageSettingViewModel : Screen
     {
         public PageSettingViewModel(WndMainViewModel _wndMainVM)
         {

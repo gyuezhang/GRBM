@@ -2,7 +2,7 @@
 
 namespace GRBM
 {
-    class PageGroupMngViewModel : Screen
+    public class PageGroupMngViewModel : Screen
     {
         public PageGroupMngViewModel(WndMainViewModel _wndMainVM)
         {

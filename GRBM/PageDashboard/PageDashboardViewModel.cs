@@ -2,7 +2,7 @@
 
 namespace GRBM
 {
-    class PageDashboardViewModel : Screen
+    public class PageDashboardViewModel : Screen
     {
         public PageDashboardViewModel(WndMainViewModel _wndMainVM)
         {
