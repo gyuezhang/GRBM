@@ -91,10 +91,16 @@ namespace GRBM
                     mainVmBd = new PageSettingViewModel(this);
                     break;
                 case E_Page.Setting_AdminResetPwd:
+                    menuBtnVisibilityBd = Visibility.Hidden;
+                    settingBtnVisibilityBd = Visibility.Visible;
+                    mainVmBd = new PageSettingViewModel(this);
+                    ((PageSettingViewModel)mainVmBd).pageIndexBd = 1;
                     break;
                 default:
                     break;
             }
         }
+
+
     }
 }
