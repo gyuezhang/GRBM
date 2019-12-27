@@ -67,6 +67,8 @@ namespace GRBM
         {
             menuBtnVisibilityBd = Visibility.Visible;
             settingBtnVisibilityBd = Visibility.Hidden;
+            addrsBarVmBd = new CtrlAddrsBarViewModel(this);
+            addrsBarVmBd.Update(p);
             switch (p)
             {
                 case E_Page.Dashboard:
