@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using MaterialDesignThemes.Wpf;
 using Stylet;
 
 namespace GRBM
@@ -27,6 +28,12 @@ namespace GRBM
         public WindowState windowStateBd { get; set; }
         public Thickness marginBd { get; set; } = new Thickness(0, 0, 0, 0);
         public Visibility dragImgVisibilityBd { get; set; } = Visibility.Visible;
+        public Visibility menuBtnVisibilityBd { get; set; } = Visibility.Visible; 
+        public int menuBtnIndexBd { get; set; } = 1;
+        public Visibility settingBtnVisibilityBd { get; set; } = Visibility.Hidden;
+        public Screen mainVmBd { get; set; }
+        public Screen addrsBarVmBd { get; set; }
+        public SnackbarMessageQueue messageQueueBd { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(1.2));
 
         #endregion Bindings
 
@@ -45,7 +52,42 @@ namespace GRBM
         {
             this.RequestClose();
         }
+
+        public void MenuBtnCmd(string cmdPara)
+        {
+            SelectPage((E_Page)Enum.Parse(typeof(E_Page), cmdPara, true));
+        }
+
         #endregion Actions
 
+        public void SelectPage(E_Page p)
+        {
+            menuBtnVisibilityBd = Visibility.Visible;
+            settingBtnVisibilityBd = Visibility.Hidden;
+            switch (p)
+            {
+                case E_Page.Dashboard:
+                    menuBtnIndexBd = 1;
+                    break;
+                case E_Page.GroupMng:
+                    menuBtnIndexBd = 3;
+                    break;
+                case E_Page.DeptMng:
+                    break;
+                case E_Page.PersonMng:
+                    break;
+                case E_Page.LogMng:
+                    menuBtnIndexBd = 5;
+                    break;
+                case E_Page.Setting:
+                    menuBtnVisibilityBd = Visibility.Hidden;
+                    settingBtnVisibilityBd = Visibility.Visible;
+                    break;
+                case E_Page.Setting_AdminResetPwd:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

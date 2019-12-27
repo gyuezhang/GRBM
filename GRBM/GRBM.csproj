@@ -161,7 +161,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PageDashboard\PageDashboardView.xaml.cs">
+      <DependentUpon>PageDashboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageDashboard\PageDashboardViewModel.cs" />
+    <Compile Include="PageGroupMng\PageGroupMngView.xaml.cs">
+      <DependentUpon>PageGroupMngView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageGroupMng\PageGroupMngViewModel.cs" />
+    <Compile Include="PageLogMng\PageLogMngView.xaml.cs">
+      <DependentUpon>PageLogMngView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageLogMng\PageLogMngViewModel.cs" />
+    <Compile Include="PageSetting\PageSettingView.xaml.cs">
+      <DependentUpon>PageSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageSetting\PageSettingViewModel.cs" />
     <Compile Include="Resource\Comm\PasswordHelper.cs" />
+    <Compile Include="Resource\Comm\UI_Def.cs" />
     <Compile Include="WndMain\WndMainView.xaml.cs">
       <DependentUpon>WndMainView.xaml</DependentUpon>
     </Compile>
@@ -200,6 +217,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="PageDashboard\PageDashboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageGroupMng\PageGroupMngView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageLogMng\PageLogMngView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageSetting\PageSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WndLogin\WndLoginView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -214,6 +247,7 @@
     <Resource Include="Resource\Image\Logo.png" />
     <Resource Include="Resource\Image\resize-bottom-right.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.0.5\build\Fody.targets" Condition="Exists('..\packages\Fody.6.0.5\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

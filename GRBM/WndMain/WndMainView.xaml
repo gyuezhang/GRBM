@@ -28,6 +28,14 @@
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="Foreground" Value="White"/>
             </Style>
+            <Style x:Key="MenuBtn" TargetType="Button" BasedOn="{StaticResource MaterialDesignToolForegroundButton}">
+                <Setter Property="ToolTipService.Placement" Value="Right"/>
+                <Setter Property="ToolTipService.HorizontalOffset" Value="30"/>
+                <Setter Property="ToolTipService.VerticalOffset" Value="12"/>
+                <Setter Property="Width" Value="48"/>
+                <Setter Property="Height" Value="48"/>
+                <Setter Property="Margin" Value="2,0,0,0"/>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -244,50 +252,20 @@
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="64"/>
                             <RowDefinition Height="5"/>
-                            <RowDefinition Height="64"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="64"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="64"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="64"/>
-                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
-                        <Border Width="48" Height="48" Background="#FF09AC09" CornerRadius="3,3,3,3" Grid.Row="{Binding iBdFocus}" Visibility="{Binding vMenuFocus}"/>
-                        <Button Grid.Row="1" Command="{s:Action OnChangePage}" CommandParameter="1" ToolTip="仪表板" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="30" ToolTipService.VerticalOffset="12"  Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
+                        <Border Width="48" Height="48" Background="#FF09AC09" CornerRadius="3,3,3,3" Grid.Row="{Binding menuBtnIndexBd}" Visibility="{Binding menuBtnVisibilityBd}"/>
+                        <Button Grid.Row="1" Style="{StaticResource MenuBtn}" ToolTip="仪表板" Command="{s:Action MenuBtnCmd}" CommandParameter="Dashboard">
                             <materialDesign:PackIcon Kind="ViewDashboard" Height="36" Width="36" Margin="-10" Foreground="White"/>
                         </Button>
-                        <Button Grid.Row="3" Command="{s:Action OnChangePage}" CommandParameter="2"   ToolTip="组织管理" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="30" ToolTipService.VerticalOffset="12"    Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
+                        <Border Grid.Row="2" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
+                        <Button Grid.Row="3" Style="{StaticResource MenuBtn}" ToolTip="组织管理" Command="{s:Action MenuBtnCmd}" CommandParameter="GroupMng">
                             <materialDesign:PackIcon Kind="AccountsGroup" Height="36" Width="36" Margin="-10" Foreground="White"/>
                         </Button>
-                        <Button Grid.Row="5" Command="{s:Action OnChangePage}" CommandParameter="3"   ToolTip="日志管理"  ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="30" ToolTipService.VerticalOffset="12"   Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
+                        <Button Grid.Row="5" Style="{StaticResource MenuBtn}" ToolTip="日志管理" Command="{s:Action MenuBtnCmd}" CommandParameter="LogMng">
                             <materialDesign:PackIcon Kind="DateRange" Height="36" Width="36" Margin="-10" Foreground="White"/>
                         </Button>
-                        <!--<Button Grid.Row="7" Command="{s:Action OnChangePage}" CommandParameter="4"   ToolTip="控沉工作" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="30" ToolTipService.VerticalOffset="12"    Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
-                            <materialDesign:PackIcon Kind="Layers" Height="36" Width="36" Margin="-10" Foreground="White"/>
-                        </Button>
-                        <Button Grid.Row="9" Command="{s:Action OnChangePage}" CommandParameter="5"  ToolTip="地下水动态" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="30" ToolTipService.VerticalOffset="12"   Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
-                            <materialDesign:PackIcon Kind="Water" Height="36" Width="36" Margin="-10" Foreground="White"/>
-                        </Button>
-                        <Button Grid.Row="11"  Command="{s:Action OnChangePage}" CommandParameter="6"  ToolTip="地下水工程" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="30" ToolTipService.VerticalOffset="12"   Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
-                            <materialDesign:PackIcon Kind="Worker" Height="36" Width="36" Margin="-10" Foreground="White"/>
-                        </Button>
-                        <Button Grid.Row="13"  Command="{s:Action OnChangePage}" CommandParameter="7"  ToolTip="水文地质" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="30" ToolTipService.VerticalOffset="12"   Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
-                            <materialDesign:PackIcon Kind="Map" Height="36" Width="36" Margin="-10" Foreground="White"/>
-                        </Button>
-                        <Button Grid.Row="15"  Command="{s:Action OnChangePage}" CommandParameter="8" ToolTip="法律法规" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="30" ToolTipService.VerticalOffset="12"   Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
-                            <materialDesign:PackIcon Kind="ScaleBalance" Height="36" Width="36" Margin="-10" Foreground="White"/>
-                        </Button>-->
-                        <Border Grid.Row="2" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
                         <Border Grid.Row="4" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
-                        <!--<Border Grid.Row="6" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
-                        <Border Grid.Row="8" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
-                        <Border Grid.Row="10" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
-                        <Border Grid.Row="12" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
-                        <Border Grid.Row="14" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>-->
-
                     </Grid>
-
                     <Border Grid.Row="2" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
 
                     <!--菜单栏/中部/底部按钮-->
@@ -295,8 +273,8 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Border  Width="48" Height="48" Background="#FF09AC09" CornerRadius="3,3,3,3" Grid.Row="1" Visibility="{Binding vSettingFocus}"/>
-                        <Button  Grid.Row="1" ToolTip="设置"  Command="{s:Action OnChangePage}" CommandParameter="9"  ToolTipService.Placement="Right" ToolTipService.VerticalOffset="12" ToolTipService.HorizontalOffset="30"   Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
+                        <Border  Width="48" Height="48" Background="#FF09AC09" CornerRadius="3,3,3,3" Grid.Row="1" Visibility="{Binding settingBtnVisibilityBd}"/>
+                        <Button  Grid.Row="1" Style="{StaticResource MenuBtn}" ToolTip="设置" Command="{s:Action MenuBtnCmd}" CommandParameter="Setting">
                             <materialDesign:PackIcon Kind="Settings" Height="36" Width="36" Margin="-10" Foreground="White"/>
                         </Button>
                     </Grid>
@@ -363,14 +341,12 @@
                     </Border.Background>
                 </Border>
                 <Grid Grid.Row="0" Grid.RowSpan="2">
-                    <!--<ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,0" >-->
-                    <ContentControl  s:View.Model="{Binding curPage}" />
-                    <!--</ScrollViewer>-->
+                    <ContentControl  s:View.Model="{Binding mainVmBd}" />
                     <Image Visibility="{Binding dragImgVisibilityBd}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRBM;component/Resource/Image/resize-bottom-right.png"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="400">
-                        <materialDesign:Snackbar  MessageQueue="{Binding mainMessageQueue}"/>
+                        <materialDesign:Snackbar  MessageQueue="{Binding messageQueueBd}"/>
                     </StackPanel>
-                    <ContentControl   s:View.Model="{Binding addrsBar}"  HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="32"/>
+                    <ContentControl s:View.Model="{Binding addrsBarVmBd}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="32"/>
                 </Grid>
             </Grid>
         </Grid>
