@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GRBM.PageLogMng
+namespace GRBM
 {
     /// <summary>
     /// PageLogMngView.xaml 的交互逻辑

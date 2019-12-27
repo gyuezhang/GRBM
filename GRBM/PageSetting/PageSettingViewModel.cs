@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Stylet;
 
-namespace GRBM.PageSetting
+namespace GRBM
 {
-    class PageSettingViewModel
+    class PageSettingViewModel : Screen
     {
+        public PageSettingViewModel(WndMainViewModel _wndMainVM)
+        {
+            wndMainVM = _wndMainVM;
+        }
+        private WndMainViewModel wndMainVM { get; set; }
+
     }
 }

@@ -16,6 +16,9 @@ namespace GRBM
             //重置最大窗口尺寸（此处避免运行过程中任务栏显隐）
             maxHeightBd = SystemParameters.WorkArea.Height + 7;
             maxWidthBd = SystemParameters.WorkArea.Width + 7;
+
+            mainVmBd = new PageDashboardViewModel(this);
+
         }
 
         #region SocketHandler
@@ -68,9 +71,11 @@ namespace GRBM
             {
                 case E_Page.Dashboard:
                     menuBtnIndexBd = 1;
+                    mainVmBd = new PageDashboardViewModel(this);
                     break;
                 case E_Page.GroupMng:
                     menuBtnIndexBd = 3;
+                    mainVmBd = new PageGroupMngViewModel(this);
                     break;
                 case E_Page.DeptMng:
                     break;
@@ -78,10 +83,12 @@ namespace GRBM
                     break;
                 case E_Page.LogMng:
                     menuBtnIndexBd = 5;
+                    mainVmBd = new PageLogMngViewModel(this);
                     break;
                 case E_Page.Setting:
                     menuBtnVisibilityBd = Visibility.Hidden;
                     settingBtnVisibilityBd = Visibility.Visible;
+                    mainVmBd = new PageSettingViewModel(this);
                     break;
                 case E_Page.Setting_AdminResetPwd:
                     break;

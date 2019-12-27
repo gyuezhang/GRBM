@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Stylet;
 
-namespace GRBM.PageLogMng
+namespace GRBM
 {
-    class PageLogMngViewModel
+    class PageLogMngViewModel : Screen
     {
+        public PageLogMngViewModel(WndMainViewModel _wndMainVM)
+        {
+            wndMainVM = _wndMainVM;
+        }
+        private WndMainViewModel wndMainVM { get; set; }
+
     }
 }
