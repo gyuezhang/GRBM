@@ -78,8 +78,14 @@ namespace GRBM
                     mainVmBd = new PageGroupMngViewModel(this);
                     break;
                 case E_Page.DeptMng:
+                    menuBtnIndexBd = 3;
+                    mainVmBd = new PageGroupMngViewModel(this);
+                    ((PageGroupMngViewModel)mainVmBd).pageIndexBd = 1;
                     break;
-                case E_Page.PersonMng:
+                case E_Page.UserMng:
+                    menuBtnIndexBd = 3;
+                    mainVmBd = new PageGroupMngViewModel(this);
+                    ((PageGroupMngViewModel)mainVmBd).pageIndexBd = 2;
                     break;
                 case E_Page.LogMng:
                     menuBtnIndexBd = 5;

@@ -11,7 +11,7 @@ namespace GRBM
         Dashboard,
         GroupMng,
             DeptMng,
-            PersonMng,
+            UserMng,
         LogMng,
         Setting,
             Setting_AdminResetPwd,

@@ -13,6 +13,8 @@ namespace GRBM
             GRSocketHandler.adminResetPwd += GRSocketHandler_adminResetPwd;
         }
 
+        private WndMainViewModel wndMainVM { get; set; }
+
         #region SocketHandler
 
         private void GRSocketHandler_adminResetPwd(RES_STATE state)
@@ -32,8 +34,6 @@ namespace GRBM
 
         #endregion SocketHandler
 
-        private WndMainViewModel wndMainVM { get; set; }
-        
         #region Bindings        
 
         public int pageIndexBd { get; set; } = 0;
@@ -80,6 +80,5 @@ namespace GRBM
         }
 
         #endregion Actions
-
     }
 }
