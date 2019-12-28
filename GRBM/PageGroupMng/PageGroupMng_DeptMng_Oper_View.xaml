@@ -9,7 +9,25 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance local:PageGroupMngViewModel}"       
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid  Background="#44000000">
+        <Border Width="240" Height="165" Background="#FF000000">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding operTitleBd}" x:Name="tbTitle" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,5,5,0" Grid.Row="0"/>
+                <TextBox materialDesign:HintAssist.Hint="部门名" Text="{Binding operDeptNameBd}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="DarkCyan" Margin="15,5,15,5" FontSize="18" Grid.Row="1"/>
+                <Grid  Grid.Row="2" Margin="0 16 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" IsDefault="True" Margin="5" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action OperDeptOKCmd}" Content="{Binding operDeptOKTextBd}"/>
+                    <Button Grid.Column="1" IsCancel="True" Margin="5"  Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action OperDeptCancelCmd}" Content="返回"/>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

@@ -4,6 +4,7 @@ using GRUtil;
 using Stylet;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace GRBM
 {
@@ -157,7 +158,10 @@ namespace GRBM
         public int pageIndexBd { get; set; } = 0;
         public List<string> deptLst { get; set; }
         public List<C_User> userLst { get; set; }
-
+        public Visibility VOperDeptBd { get; set; } = Visibility.Collapsed;
+        public string operDeptNameBd { get; set; }
+        public string operTitleBd { get; set; }
+        public string operDeptOKTextBd { get; set; }
         #endregion Bindings
 
         #region Actions
@@ -169,9 +173,42 @@ namespace GRBM
 
         public void AddDeptCmd()
         {
+            operTitleBd = "创建部门";
+            operDeptOKTextBd = "创建";
+            operDeptNameBd = "";
+            VOperDeptBd = Visibility.Visible;
+        }
 
+        public void EdtDeptCmd(string deptName)
+        {
+            operTitleBd = "编辑部门";
+            operDeptOKTextBd = "保存";
+            operDeptNameOld = deptName;
+            operDeptNameBd = deptName;
+            VOperDeptBd = Visibility.Visible;
+        }
+
+        public void DelDeptCmd(string deptName)
+        {
+            GRSocketAPI.DelDept(deptName);
+        }
+
+        public void OperDeptOKCmd()
+        {
+            if(operDeptOKTextBd == "创建")
+                GRSocketAPI.AddDept(operDeptNameBd);
+            else if(operDeptOKTextBd == "保存")
+                GRSocketAPI.EdtDept(operDeptNameOld, operDeptNameBd);
+            VOperDeptBd = Visibility.Collapsed;
+        }
+
+        public void OperDeptCancelCmd()
+        {
+            VOperDeptBd = Visibility.Collapsed;
         }
 
         #endregion Actions
+
+        private string operDeptNameOld { get; set; }
     }
 }

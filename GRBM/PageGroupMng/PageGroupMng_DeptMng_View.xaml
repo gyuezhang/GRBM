@@ -39,10 +39,10 @@
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Grid.Column="0" FontSize="24" VerticalAlignment="Center" Text="{Binding Path=.}"/>
-                                        <Button Margin="10,5,0,5" Grid.Column="2" Foreground="White" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="28" Width="28" Command="{s:Action btnEdtDeptCmd}" CommandParameter="{Binding Path=.}">
+                                        <Button Margin="10,5,0,5" Grid.Column="2" Foreground="White" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="28" Width="28" Command="{s:Action EdtDeptCmd}" CommandParameter="{Binding Path=.}">
                                             <materialDesign:PackIcon Kind="Edit" Height="22" Width="22" />
                                         </Button>
-                                        <Button Margin="10,5,0,5" Grid.Column="3" Foreground="White" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="28" Width="28" Command="{s:Action btnDelDeptCmd}" CommandParameter="{Binding Path=.}">
+                                        <Button Margin="10,5,0,5" Grid.Column="3" Foreground="White" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="28" Width="28" Command="{s:Action DelDeptCmd}" CommandParameter="{Binding Path=.}">
                                             <materialDesign:PackIcon Kind="Delete" Height="22" Width="22" />
                                         </Button>
                                     </Grid>
@@ -53,5 +53,6 @@
                 </ListView>
             </ScrollViewer>
         </StackPanel>
+        <local:PageGroupMng_DeptMng_Oper_View Visibility="{Binding VOperDeptBd}"/>
     </Grid>
 </UserControl>
