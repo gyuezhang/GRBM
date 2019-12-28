@@ -173,8 +173,14 @@
       <DependentUpon>PageGroupMngView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageGroupMng\PageGroupMngViewModel.cs" />
+    <Compile Include="PageGroupMng\PageGroupMng_DeptMng_Oper_View.xaml.cs">
+      <DependentUpon>PageGroupMng_DeptMng_Oper_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageGroupMng\PageGroupMng_DeptMng_View.xaml.cs">
       <DependentUpon>PageGroupMng_DeptMng_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageGroupMng\PageGroupMng_UserMng_Oper_View.xaml.cs">
+      <DependentUpon>PageGroupMng_UserMng_Oper_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageGroupMng\PageGroupMng_UserMng_View.xaml.cs">
       <DependentUpon>PageGroupMng_UserMng_View.xaml</DependentUpon>
@@ -242,7 +248,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageGroupMng\PageGroupMng_DeptMng_Oper_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageGroupMng\PageGroupMng_DeptMng_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageGroupMng\PageGroupMng_UserMng_Oper_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

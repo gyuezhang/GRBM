@@ -10,6 +10,48 @@
              d:DataContext="{d:DesignInstance local:PageGroupMngViewModel}"       
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="PageGroupMng_DeptMng_View Under Construction..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="380">
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="15" Text="部门管理" FontSize="28"/>
+            <Grid Margin="5,5,5,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="260"/>
+                    <ColumnDefinition Width="110"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="部门列表" FontSize="22" Grid.Column="0" VerticalAlignment="Center"/>
+                <Button Content="新建部门" Grid.Column="2" Margin="0,5,0,5" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{s:Action AddDeptCmd}"/>
+            </Grid>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300" BorderThickness="0" Margin="5" Padding="0">
+                <ListView Margin="0" Padding="0" HorizontalContentAlignment="Stretch" BorderThickness="0" ItemsSource="{Binding deptLst}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="0">
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="1"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Margin="0" Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" FontSize="24" VerticalAlignment="Center" Text="{Binding Path=.}"/>
+                                        <Button Margin="10,5,0,5" Grid.Column="2" Foreground="White" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="28" Width="28" Command="{s:Action btnEdtDeptCmd}" CommandParameter="{Binding Path=.}">
+                                            <materialDesign:PackIcon Kind="Edit" Height="22" Width="22" />
+                                        </Button>
+                                        <Button Margin="10,5,0,5" Grid.Column="3" Foreground="White" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="28" Width="28" Command="{s:Action btnDelDeptCmd}" CommandParameter="{Binding Path=.}">
+                                            <materialDesign:PackIcon Kind="Delete" Height="22" Width="22" />
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </UserControl>
