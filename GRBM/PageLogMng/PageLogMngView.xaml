@@ -24,7 +24,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="2" Content="刷新" Margin="5" Command="{s:Action RefreshCmd}"/>
             </Grid>
-            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" BorderThickness="0" Margin="5,25,5,35" Padding="0" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" BorderThickness="0" Margin="5,25,5,85" Padding="0" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                 <DataGrid  Margin="32,0,5,0"  ItemsSource="{Binding logLstBd}" HorizontalAlignment="Center"  VerticalAlignment="Top" AutoGenerateColumns="False"  Background="Transparent"
                     materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2" CanUserAddRows="False">
                     <DataGrid.Columns >
