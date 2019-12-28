@@ -228,6 +228,7 @@ namespace GRBM
             operUserTitleBd = "编辑用户";
             operUserOKTextBd = "保存";
             operUserBd = u;
+            operUserEditPwd = u.Pwd;
             VOperUserBd = Visibility.Visible;
         }
 
@@ -238,13 +239,24 @@ namespace GRBM
 
         public void OperUserOKCmd()
         {
+            if(operUserBd.Pwd == null || operUserBd.Pwd == "")
+            {
+                wndMainVM.messageQueueBd.Enqueue("密码不能为空");
+                return;
+            }
+
             if (operUserOKTextBd == "创建")
             {
+                
                 operUserBd.Pwd = C_Md5.GetHash(operUserBd.Pwd);
                 GRSocketAPI.AddUser(operUserBd);
             }
             else if (operUserOKTextBd == "保存")
+            {
+                if(operUserEditPwd != operUserBd.Pwd)
+                    operUserBd.Pwd = C_Md5.GetHash(operUserBd.Pwd);
                 GRSocketAPI.EdtUser(operUserBd);
+            }
             VOperUserBd = Visibility.Collapsed;
         }
 
@@ -256,5 +268,6 @@ namespace GRBM
         #endregion Actions
 
         private string operDeptNameOld { get; set; }
+        private string operUserEditPwd { get; set; }
     }
 }
