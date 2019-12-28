@@ -38,11 +38,11 @@
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Column="0" FontSize="24" VerticalAlignment="Center" Text="{Binding Path=.}"/>
+                                        <TextBlock Grid.Column="0" FontSize="18" Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center" Text="{Binding Path=.}"/>
                                         <Button Margin="10,5,0,5" Grid.Column="2" Foreground="White" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="28" Width="28" Command="{s:Action EdtDeptCmd}" CommandParameter="{Binding Path=.}">
                                             <materialDesign:PackIcon Kind="Edit" Height="22" Width="22" />
                                         </Button>
-                                        <Button Margin="10,5,0,5" Grid.Column="3" Foreground="White" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="28" Width="28" Command="{s:Action DelDeptCmd}" CommandParameter="{Binding Path=.}">
+                                        <Button Margin="10,5,0,5" Grid.Column="3" Foreground="White" Background="#FFFF8694" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="28" Width="28" Command="{s:Action DelDeptCmd}" CommandParameter="{Binding Path=.}">
                                             <materialDesign:PackIcon Kind="Delete" Height="22" Width="22" />
                                         </Button>
                                     </Grid>

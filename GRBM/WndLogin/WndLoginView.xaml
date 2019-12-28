@@ -37,7 +37,7 @@
     </Window.Resources>
     
     <!--主控件-->
-    <Grid Background="#FF1B8542">
+    <Grid Background="#FF00897B">
         
         <!--主内容-->
         <materialDesign:Transitioner HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="{Binding pageIndexBd}" DefaultTransitionOrigin="1, -1">

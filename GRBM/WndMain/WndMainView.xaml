@@ -43,8 +43,8 @@
         <!--背景色-->
         <Grid.Background>
             <RadialGradientBrush>
-                <GradientStop Color="#FF217831" Offset="0"/>
-                <GradientStop Color="#FF1E6C2C" Offset="1"/>
+                <GradientStop Color="#FF00897B" Offset="0"/>
+                <GradientStop Color="#FF005B4F" Offset="1"/>
             </RadialGradientBrush>
         </Grid.Background>
 
@@ -253,7 +253,7 @@
                             <RowDefinition Height="64"/>
                             <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
-                        <Border Width="48" Height="48" Background="#FF09AC09" CornerRadius="3,3,3,3" Grid.Row="{Binding menuBtnIndexBd}" Visibility="{Binding menuBtnVisibilityBd}"/>
+                        <Border Width="48" Height="48" Background="#FF09AB9B" CornerRadius="3,3,3,3" Grid.Row="{Binding menuBtnIndexBd}" Visibility="{Binding menuBtnVisibilityBd}"/>
                         <Button Grid.Row="1" Style="{StaticResource MenuBtn}" ToolTip="仪表板" Command="{s:Action MenuBtnCmd}" CommandParameter="Dashboard">
                             <materialDesign:PackIcon Kind="ViewDashboard" Height="36" Width="36" Margin="-10" Foreground="White"/>
                         </Button>
@@ -273,7 +273,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Border  Width="48" Height="48" Background="#FF09AC09" CornerRadius="3,3,3,3" Grid.Row="1" Visibility="{Binding settingBtnVisibilityBd}"/>
+                        <Border  Width="48" Height="48" Background="#FF09AB9B" CornerRadius="3,3,3,3" Grid.Row="1" Visibility="{Binding settingBtnVisibilityBd}"/>
                         <Button  Grid.Row="1" Style="{StaticResource MenuBtn}" ToolTip="设置" Command="{s:Action MenuBtnCmd}" CommandParameter="Setting">
                             <materialDesign:PackIcon Kind="Settings" Height="36" Width="36" Margin="-10" Foreground="White"/>
                         </Button>
