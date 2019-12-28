@@ -10,18 +10,23 @@
              d:DataContext="{d:DesignInstance local:PageGroupMngViewModel}"       
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="380">
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="15" Text="用户管理" FontSize="28"/>
-            <Grid Margin="5,5,5,15">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="380">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="15,80,15,15" Text="用户管理" FontSize="28"/>
+            <Grid Grid.Row="1" Margin="5,5,5,15">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="260"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="110"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="用户列表" FontSize="22" Grid.Column="0" VerticalAlignment="Center"/>
                 <Button Content="新建用户" Grid.Column="2" Margin="0,5,0,5" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{s:Action AddUserCmd}"/>
             </Grid>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300" BorderThickness="0" Margin="5" Padding="0">
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" BorderThickness="0" Margin="5,5,5,35" Padding="0" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                 <ListView Margin="0" Padding="0" HorizontalContentAlignment="Stretch" BorderThickness="0" ItemsSource="{Binding userLst}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -52,7 +57,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollViewer>
-        </StackPanel>
+        </Grid>
         <local:PageGroupMng_UserMng_Oper_View Visibility="{Binding VOperUserBd}"/>
     </Grid>
 </UserControl>
