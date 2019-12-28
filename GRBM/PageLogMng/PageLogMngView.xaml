@@ -24,9 +24,9 @@
                 <DataGrid  Margin="32,20,60,32"  Grid.Row="1" ItemsSource="{Binding logLstBd}" HorizontalAlignment="Center"  VerticalAlignment="Top" AutoGenerateColumns="False"  Background="Transparent"
                     materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2" CanUserAddRows="False">
                     <DataGrid.Columns >
-                        <DataGridTextColumn Header="用户" Binding="{Binding UserId}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="操作" Binding="{Binding Api}"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="时间" Binding="{Binding Time}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="用户" Binding="{Binding UserId}" MinWidth="80" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="操作" Binding="{Binding Api}"  MinWidth="200" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="时间" Binding="{Binding Time}" MinWidth="200" IsReadOnly="True"/>
                         <DataGridTextColumn Header="内容" Binding="{Binding Ex}" MinWidth="400" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using GRSocket;
 using MaterialDesignThemes.Wpf;
 using Stylet;
 
@@ -19,9 +20,21 @@ namespace GRBM
 
             mainVmBd = new PageDashboardViewModel(this);
             addrsBarVmBd = new CtrlAddrsBarViewModel(this);
+
+            GRSocketHandler.ConnState += GRSocketHandler_ConnState;
         }
 
         #region SocketHandler
+        private void GRSocketHandler_ConnState(GRUtil.RES_STATE state)
+        {
+            App.Current.Dispatcher.Invoke((Action)(() =>
+            {
+                var wndLoginViewModel = new WndLoginViewModel(_windowManager);
+                this._windowManager.ShowWindow(wndLoginViewModel);
+                this.RequestClose();
+            }));
+        }
+
         #endregion SocketHandler
 
         #region Bindings
