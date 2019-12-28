@@ -31,7 +31,7 @@
                         <Button.Background>
                             <ImageBrush ImageSource="/GRBM;component/Resource/Image/bc_usermng.png"/>
                         </Button.Background>
-                        <TextBlock Text="人员管理" FontSize="24" Margin="0,200,0,0"/>
+                        <TextBlock Text="用户管理" FontSize="24" Margin="0,200,0,0"/>
                     </Button>
                 </StackPanel>
             </Grid>

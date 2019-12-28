@@ -17,7 +17,7 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="{Binding operTitleBd}" x:Name="tbTitle" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,5,5,0" Grid.Row="0"/>
+                <TextBlock Text="{Binding operDeptTitleBd}" x:Name="tbTitle" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,5,5,0" Grid.Row="0"/>
                 <TextBox materialDesign:HintAssist.Hint="部门名" Text="{Binding operDeptNameBd}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="DarkCyan" Margin="15,5,15,5" FontSize="18" Grid.Row="1"/>
                 <Grid  Grid.Row="2" Margin="0 16 0 0">
                     <Grid.ColumnDefinitions>

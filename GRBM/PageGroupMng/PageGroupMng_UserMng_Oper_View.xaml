@@ -9,7 +9,44 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance local:PageGroupMngViewModel}"       
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid  Background="#44000000">
+        <Border Width="420" Height="285" Background="#FF000000">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding operUserTitleBd}" x:Name="tbTitle" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,5,5,0" Grid.Row="0"/>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox materialDesign:HintAssist.Hint="姓名" Text="{Binding operUserBd.Name,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="DarkCyan" Margin="15,5,15,5" FontSize="18" Grid.Column="0"/>
+                    <PasswordBox  Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding operUserBd.Pwd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="15,5,15,5" Foreground="DarkCyan" FontSize="18" materialDesign:HintAssist.Hint="密码" HorizontalAlignment="Stretch" />
+                </Grid>
+                <ComboBox Grid.Row="2" materialDesign:HintAssist.Hint="部门" Foreground="DarkCyan" FontSize="18" ItemsSource="{Binding deptLst}" SelectedItem="{Binding operUserBd.DeptName,UpdateSourceTrigger=PropertyChanged}"/>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox materialDesign:HintAssist.Hint="邮箱" Text="{Binding operUserBd.Email,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="DarkCyan" Margin="15,5,15,5" FontSize="18" Grid.Column="0"/>
+                    <TextBox materialDesign:HintAssist.Hint="电话" Text="{Binding operUserBd.Tel,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="DarkCyan" Margin="15,5,15,5" FontSize="18" Grid.Column="1"/>
+                </Grid>
+                
+                <Grid  Grid.Row="4" Margin="0 16 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" IsDefault="True" Margin="5" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action OperUserOKCmd}" Content="{Binding operUserOKTextBd}"/>
+                    <Button Grid.Column="1" IsCancel="True" Margin="5"  Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action OperUserCancelCmd}" Content="返回"/>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

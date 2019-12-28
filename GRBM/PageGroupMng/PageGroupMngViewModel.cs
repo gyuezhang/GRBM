@@ -159,9 +159,15 @@ namespace GRBM
         public List<string> deptLst { get; set; }
         public List<C_User> userLst { get; set; }
         public Visibility VOperDeptBd { get; set; } = Visibility.Collapsed;
+        public Visibility VOperUserBd { get; set; } = Visibility.Collapsed;
         public string operDeptNameBd { get; set; }
-        public string operTitleBd { get; set; }
+        public string operDeptTitleBd { get; set; }
         public string operDeptOKTextBd { get; set; }
+        public string operUserNameBd { get; set; }
+        public string operUserTitleBd { get; set; }
+        public string operUserOKTextBd { get; set; }
+        public C_User operUserBd { get; set; }
+
         #endregion Bindings
 
         #region Actions
@@ -171,9 +177,10 @@ namespace GRBM
             wndMainVM.SelectPage((E_Page)Enum.Parse(typeof(E_Page), cmdPara, true));
         }
 
+        //Dept
         public void AddDeptCmd()
         {
-            operTitleBd = "创建部门";
+            operDeptTitleBd = "创建部门";
             operDeptOKTextBd = "创建";
             operDeptNameBd = "";
             VOperDeptBd = Visibility.Visible;
@@ -181,7 +188,7 @@ namespace GRBM
 
         public void EdtDeptCmd(string deptName)
         {
-            operTitleBd = "编辑部门";
+            operDeptTitleBd = "编辑部门";
             operDeptOKTextBd = "保存";
             operDeptNameOld = deptName;
             operDeptNameBd = deptName;
@@ -205,6 +212,45 @@ namespace GRBM
         public void OperDeptCancelCmd()
         {
             VOperDeptBd = Visibility.Collapsed;
+        }
+
+        //User
+        public void AddUserCmd()
+        {
+            operUserTitleBd = "创建用户";
+            operUserOKTextBd = "创建";
+            operUserBd = new C_User();
+            VOperUserBd = Visibility.Visible;
+        }
+
+        public void EdtUserCmd(C_User u)
+        {
+            operUserTitleBd = "编辑用户";
+            operUserOKTextBd = "保存";
+            operUserBd = u;
+            VOperUserBd = Visibility.Visible;
+        }
+
+        public void DelUserCmd(C_User u)
+        {
+            GRSocketAPI.DelUser(u.Id);
+        }
+
+        public void OperUserOKCmd()
+        {
+            if (operUserOKTextBd == "创建")
+            {
+                operUserBd.Pwd = C_Md5.GetHash(operUserBd.Pwd);
+                GRSocketAPI.AddUser(operUserBd);
+            }
+            else if (operUserOKTextBd == "保存")
+                GRSocketAPI.EdtUser(operUserBd);
+            VOperUserBd = Visibility.Collapsed;
+        }
+
+        public void OperUserCancelCmd()
+        {
+            VOperUserBd = Visibility.Collapsed;
         }
 
         #endregion Actions
