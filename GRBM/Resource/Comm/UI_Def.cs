@@ -100,9 +100,9 @@ namespace GRBM
                 case E_Page.GroupMng:
                     return PackIconKind.AccountsGroup;
                 case E_Page.DeptMng:
-                    return PackIconKind.DepartureBoard;
+                    return PackIconKind.HomeEdit;
                 case E_Page.UserMng:
-                    return PackIconKind.User;
+                    return PackIconKind.PersonEdit;
                 case E_Page.LogMng:
                     return PackIconKind.DateRange;
                 case E_Page.Setting:
