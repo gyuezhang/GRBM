@@ -27,7 +27,7 @@ namespace GRBM
             switch (state)
             {
                 case RES_STATE.OK:
-                    logLstBd = logs;
+                    pageBarVmBd.Init(logs);
                     break;
                 case RES_STATE.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("获取日志失败");
@@ -41,7 +41,6 @@ namespace GRBM
 
         #region Bindings        
 
-        public List<C_Log> logLstBd { get; set; } = new List<C_Log>();
         public CtrlPageBarViewModel pageBarVmBd { get; set; }
 
         #endregion Bindings
