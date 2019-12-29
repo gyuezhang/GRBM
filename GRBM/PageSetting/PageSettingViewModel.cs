@@ -10,7 +10,6 @@ namespace GRBM
         public PageSettingViewModel(WndMainViewModel _wndMainVM)
         {
             wndMainVM = _wndMainVM;
-            GRSocketHandler.adminResetPwd += GRSocketHandler_adminResetPwd;
         }
 
         private WndMainViewModel wndMainVM { get; set; }
@@ -19,6 +18,7 @@ namespace GRBM
 
         private void GRSocketHandler_adminResetPwd(RES_STATE state)
         {
+            GRSocketHandler.adminResetPwd -= GRSocketHandler_adminResetPwd;
             switch (state)
             {
                 case RES_STATE.OK:
@@ -76,6 +76,7 @@ namespace GRBM
                 return;
             }
 
+            GRSocketHandler.adminResetPwd += GRSocketHandler_adminResetPwd;
             GRSocketAPI.AdminResetPwd(C_Md5.GetHash(pwdOldBd), C_Md5.GetHash(pwdNewBd));
         }
 

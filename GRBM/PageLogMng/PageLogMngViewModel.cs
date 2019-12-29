@@ -12,9 +12,7 @@ namespace GRBM
         {
             wndMainVM = _wndMainVM;
 
-            GRSocketHandler.getLogs += GRSocketHandler_getLogs;
-
-            GRSocketAPI.GetLogs();
+            RefreshCmd();
         }
 
         private WndMainViewModel wndMainVM { get; set; }
@@ -23,6 +21,8 @@ namespace GRBM
 
         private void GRSocketHandler_getLogs(RES_STATE state, List<C_Log> logs)
         {
+            GRSocketHandler.getLogs -= GRSocketHandler_getLogs;
+
             switch (state)
             {
                 case RES_STATE.OK:
@@ -48,6 +48,7 @@ namespace GRBM
 
         public void RefreshCmd()
         {
+            GRSocketHandler.getLogs += GRSocketHandler_getLogs;
             GRSocketAPI.GetLogs();
         }
 

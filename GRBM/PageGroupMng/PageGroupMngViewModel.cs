@@ -13,16 +13,10 @@ namespace GRBM
         public PageGroupMngViewModel(WndMainViewModel _wndMainVM)
         {
             wndMainVM = _wndMainVM;
+            
 
-            GRSocketHandler.addDept += GRSocketHandler_addDept;
-            GRSocketHandler.delDept += GRSocketHandler_delDept;
-            GRSocketHandler.edtDept += GRSocketHandler_edtDept;
             GRSocketHandler.getDepts += GRSocketHandler_getDepts;
-            GRSocketHandler.addUser += GRSocketHandler_addUser;
-            GRSocketHandler.delUser += GRSocketHandler_delUser;
-            GRSocketHandler.edtUser += GRSocketHandler_edtUser;
             GRSocketHandler.getUsers += GRSocketHandler_getUsers;
-
             GRSocketAPI.GetDepts();
             GRSocketAPI.GetUsers();
         }
@@ -33,9 +27,11 @@ namespace GRBM
 
         private void GRSocketHandler_addDept(RES_STATE state)
         {
+            GRSocketHandler.addDept -= GRSocketHandler_addDept;
             switch (state)
             {
                 case RES_STATE.OK:
+                    GRSocketHandler.getDepts += GRSocketHandler_getDepts;
                     GRSocketAPI.GetDepts();
                     break;
                 case RES_STATE.FAILED:
@@ -48,9 +44,11 @@ namespace GRBM
 
         private void GRSocketHandler_delDept(RES_STATE state)
         {
+            GRSocketHandler.delDept -= GRSocketHandler_delDept;
             switch (state)
             {
                 case RES_STATE.OK:
+                    GRSocketHandler.getDepts += GRSocketHandler_getDepts;
                     GRSocketAPI.GetDepts();
                     break;
                 case RES_STATE.FAILED:
@@ -63,9 +61,11 @@ namespace GRBM
 
         private void GRSocketHandler_edtDept(RES_STATE state)
         {
+            GRSocketHandler.edtDept -= GRSocketHandler_edtDept;
             switch (state)
             {
                 case RES_STATE.OK:
+                    GRSocketHandler.getDepts += GRSocketHandler_getDepts;
                     GRSocketAPI.GetDepts();
                     break;
                 case RES_STATE.FAILED:
@@ -78,6 +78,7 @@ namespace GRBM
 
         private void GRSocketHandler_getDepts(RES_STATE state, List<string> depts)
         {
+            GRSocketHandler.getDepts -= GRSocketHandler_getDepts;
             switch (state)
             {
                 case RES_STATE.OK:
@@ -93,9 +94,11 @@ namespace GRBM
 
         private void GRSocketHandler_addUser(RES_STATE state)
         {
+            GRSocketHandler.addUser -= GRSocketHandler_addUser;
             switch (state)
             {
                 case RES_STATE.OK:
+                    GRSocketHandler.getUsers += GRSocketHandler_getUsers;
                     GRSocketAPI.GetUsers();
                     break;
                 case RES_STATE.FAILED:
@@ -108,9 +111,11 @@ namespace GRBM
 
         private void GRSocketHandler_delUser(RES_STATE state)
         {
+            GRSocketHandler.delUser -= GRSocketHandler_delUser;
             switch (state)
             {
                 case RES_STATE.OK:
+                    GRSocketHandler.getUsers += GRSocketHandler_getUsers;
                     GRSocketAPI.GetUsers();
                     break;
                 case RES_STATE.FAILED:
@@ -123,9 +128,11 @@ namespace GRBM
 
         private void GRSocketHandler_edtUser(RES_STATE state)
         {
+            GRSocketHandler.edtUser -= GRSocketHandler_edtUser;
             switch (state)
             {
                 case RES_STATE.OK:
+                    GRSocketHandler.getUsers += GRSocketHandler_getUsers;
                     GRSocketAPI.GetUsers();
                     break;
                 case RES_STATE.FAILED:
@@ -138,6 +145,7 @@ namespace GRBM
 
         private void GRSocketHandler_getUsers(RES_STATE state, List<C_User> users)
         {
+            GRSocketHandler.getUsers -= GRSocketHandler_getUsers;
             switch (state)
             {
                 case RES_STATE.OK:
@@ -197,15 +205,22 @@ namespace GRBM
 
         public void DelDeptCmd(string deptName)
         {
+            GRSocketHandler.delDept += GRSocketHandler_delDept;
             GRSocketAPI.DelDept(deptName);
         }
 
         public void OperDeptOKCmd()
         {
             if(operDeptOKTextBd == "创建")
+            {
+                GRSocketHandler.addDept += GRSocketHandler_addDept;
                 GRSocketAPI.AddDept(operDeptNameBd);
+            }
             else if(operDeptOKTextBd == "保存")
+            {
+                GRSocketHandler.edtDept += GRSocketHandler_edtDept;
                 GRSocketAPI.EdtDept(operDeptNameOld, operDeptNameBd);
+            }
             VOperDeptBd = Visibility.Collapsed;
         }
 
@@ -234,6 +249,7 @@ namespace GRBM
 
         public void DelUserCmd(C_User u)
         {
+            GRSocketHandler.delUser += GRSocketHandler_delUser;
             GRSocketAPI.DelUser(u.Id);
         }
 
@@ -247,13 +263,14 @@ namespace GRBM
 
             if (operUserOKTextBd == "创建")
             {
-                
+                GRSocketHandler.addUser += GRSocketHandler_addUser;
                 operUserBd.Pwd = C_Md5.GetHash(operUserBd.Pwd);
                 GRSocketAPI.AddUser(operUserBd);
             }
             else if (operUserOKTextBd == "保存")
             {
-                if(operUserEditPwd != operUserBd.Pwd)
+                GRSocketHandler.edtUser += GRSocketHandler_edtUser;
+                if (operUserEditPwd != operUserBd.Pwd)
                     operUserBd.Pwd = C_Md5.GetHash(operUserBd.Pwd);
                 GRSocketAPI.EdtUser(operUserBd);
             }
