@@ -165,6 +165,10 @@
       <DependentUpon>CtrlAddrsBarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CtrlAddrsBar\CtrlAddrsBarViewModel.cs" />
+    <Compile Include="CtrlPageBar\CtrlPageBarView.xaml.cs">
+      <DependentUpon>CtrlPageBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlPageBar\CtrlPageBarViewModel.cs" />
     <Compile Include="PageDashboard\PageDashboardView.xaml.cs">
       <DependentUpon>PageDashboardView.xaml</DependentUpon>
     </Compile>
@@ -237,6 +241,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="CtrlAddrsBar\CtrlAddrsBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CtrlPageBar\CtrlPageBarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
