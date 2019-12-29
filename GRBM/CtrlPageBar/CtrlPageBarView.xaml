@@ -35,10 +35,10 @@
             <TextBlock Text="条记录" Margin="10,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
+            <Button Style="{StaticResource BarBtn}" Command="{s:Action HomeCmd}">
                 <materialDesign:PackIcon Kind="ChevronDoubleLeft" Height="20" Width="20"/>
             </Button>
-            <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
+            <Button Style="{StaticResource BarBtn}" Command="{s:Action PreCmd}">
                 <materialDesign:PackIcon Kind="ChevronLeft" Height="20" Width="20"/>
             </Button>
             <TextBlock Text="第" Margin="10,0,0,0"/>
@@ -46,10 +46,10 @@
             <TextBlock Text="页，共" Margin="0,0"/>
             <TextBlock Text="{Binding pLastBd}" Margin="5,5"/>
             <TextBlock Text="页" Margin="0,0,10,0"/>
-            <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
+            <Button Style="{StaticResource BarBtn}" Command="{s:Action NextCmd}">
                 <materialDesign:PackIcon Kind="ChevronRight" Height="20" Width="20"/>
             </Button>
-            <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
+            <Button Style="{StaticResource BarBtn}" Command="{s:Action EndCmd}">
                 <materialDesign:PackIcon Kind="ChevronDoubleRight" Height="20" Width="20"/>
             </Button>
         </StackPanel>
@@ -57,7 +57,7 @@
             <TextBlock Text="跳转到" Margin="10,0"/>
             <TextBox Width="40" VerticalAlignment="Center"/>
             <TextBlock Text="页" Margin="10,0"/>
-            <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
+            <Button Style="{StaticResource BarBtn}" Command="{s:Action JumpBmd}">
                 <materialDesign:PackIcon Kind="ArrowCollapseRight" Height="20" Width="20"/>
             </Button>
         </StackPanel>
