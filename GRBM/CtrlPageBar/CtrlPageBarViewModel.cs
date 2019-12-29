@@ -2,7 +2,7 @@
 
 namespace GRBM
 {
-    class CtrlPageBarViewModel : Screen
+    public class CtrlPageBarViewModel : Screen
     {
         public CtrlPageBarViewModel(WndMainViewModel _wndMainVM)
         {
@@ -10,5 +10,23 @@ namespace GRBM
         }
         private WndMainViewModel wndMainVM { get; set; }
 
+        #region Bindings
+
+        public int allCntBd { get; set; }
+        public int pIndexBd { get; set; }
+        public int pLastBd { get; set; }
+        public int pJumpBd { get; set; }
+        #endregion Bindings
+
+        #region Actions
+
+        public void JumpBmd()
+        {
+
+        }
+
+        #endregion Actions
+
+        private int unitLen { get; set; } = 100;
     }
 }

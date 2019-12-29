@@ -14,7 +14,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <Style x:Key="BarBtn" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniDarkButton}">
-                <Setter Property="Margin" Value="15,10,15,10"/>
+                <Setter Property="Margin" Value="5,5,5,5"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
                 <Setter Property="Height" Value="32"/>
@@ -23,33 +23,43 @@
             <Style TargetType="TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="14"/>
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
     
     <Grid>
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBlock Text="共检索到223条记录"/>
+            <TextBlock Text="共检索到" Margin="10,0"/>
+            <TextBlock Text="{Binding allCntBd}" Margin="10,0"/>
+            <TextBlock Text="条记录" Margin="10,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
-                <materialDesign:PackIcon Kind="Settings" Height="20" Width="20"/>
+                <materialDesign:PackIcon Kind="ChevronDoubleLeft" Height="20" Width="20"/>
             </Button>
             <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
-                <materialDesign:PackIcon Kind="Settings" Height="20" Width="20"/>
+                <materialDesign:PackIcon Kind="ChevronLeft" Height="20" Width="20"/>
             </Button>
-            <TextBlock Text="第3页，共12页"/>
+            <TextBlock Text="第" Margin="10,0,0,0"/>
+            <TextBlock Text="{Binding pIndexBd}" Margin="5,5"/>
+            <TextBlock Text="页，共" Margin="0,0"/>
+            <TextBlock Text="{Binding pLastBd}" Margin="5,5"/>
+            <TextBlock Text="页" Margin="0,0,10,0"/>
             <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
-                <materialDesign:PackIcon Kind="Settings" Height="20" Width="20"/>
+                <materialDesign:PackIcon Kind="ChevronRight" Height="20" Width="20"/>
             </Button>
             <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
-                <materialDesign:PackIcon Kind="Settings" Height="20" Width="20"/>
+                <materialDesign:PackIcon Kind="ChevronDoubleRight" Height="20" Width="20"/>
             </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock Text="跳转到"/>
-            <TextBox Width="80"/>
-            <TextBlock Text="页"/>
+            <TextBlock Text="跳转到" Margin="10,0"/>
+            <TextBox Width="40" VerticalAlignment="Center"/>
+            <TextBlock Text="页" Margin="10,0"/>
+            <Button Style="{StaticResource BarBtn}" Command="{s:Action XXXXXX}">
+                <materialDesign:PackIcon Kind="ArrowCollapseRight" Height="20" Width="20"/>
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>

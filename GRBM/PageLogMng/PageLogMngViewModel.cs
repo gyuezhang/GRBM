@@ -11,6 +11,7 @@ namespace GRBM
         public PageLogMngViewModel(WndMainViewModel _wndMainVM)
         {
             wndMainVM = _wndMainVM;
+            pageBarVmBd = new CtrlPageBarViewModel(wndMainVM);
 
             RefreshCmd();
         }
@@ -41,7 +42,8 @@ namespace GRBM
         #region Bindings        
 
         public List<C_Log> logLstBd { get; set; } = new List<C_Log>();
-        
+        public CtrlPageBarViewModel pageBarVmBd { get; set; }
+
         #endregion Bindings
 
         #region Actions

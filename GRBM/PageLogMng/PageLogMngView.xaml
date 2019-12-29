@@ -15,6 +15,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" HorizontalAlignment="Center" Margin="15,80,15,15" Text="日志管理" FontSize="28"/>
             <Grid Grid.Row="1">
@@ -24,7 +25,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="2" Content="刷新" Margin="5" Command="{s:Action RefreshCmd}"/>
             </Grid>
-            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" BorderThickness="0" Margin="5,25,5,85" Padding="0" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" BorderThickness="0" Margin="5,25,5,10" Padding="0" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                 <DataGrid  Margin="32,0,5,0"  ItemsSource="{Binding logLstBd}" HorizontalAlignment="Center"  VerticalAlignment="Top" AutoGenerateColumns="False"  Background="Transparent"
                     materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2" CanUserAddRows="False">
                     <DataGrid.Columns >
@@ -35,6 +36,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
+            <ContentControl Grid.Row="3" s:View.Model="{Binding pageBarVmBd}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="32,10,5,65" Height="60"/>
         </Grid>
     </Grid>
 </UserControl>
