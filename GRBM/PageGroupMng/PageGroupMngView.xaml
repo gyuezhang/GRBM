@@ -22,14 +22,14 @@
                     <Button Command="{s:Action SelectPageCmd}" CommandParameter="DeptMng" Style="{StaticResource MaterialDesignRaisedButton}" Width="200" Height="240" materialDesign:ButtonAssist.CornerRadius="10"
                     Margin="40" BorderThickness="0">
                         <Button.Background>
-                            <ImageBrush ImageSource="/GRBM;component/Resource/Image/bc_deptmng.png"/>
+                            <ImageBrush ImageSource="/宝坻区地下水资源信息管理系统 - 后台管理;component/Resource/Image/bc_deptmng.png"/>
                         </Button.Background>
                         <TextBlock Text="部门管理" FontSize="24" Margin="0,200,0,0"/>
                     </Button>
                     <Button Command="{s:Action SelectPageCmd}" CommandParameter="UserMng" Style="{StaticResource MaterialDesignRaisedButton}" Width="200" Height="240" materialDesign:ButtonAssist.CornerRadius="10"
                     Margin="40" BorderThickness="0">
                         <Button.Background>
-                            <ImageBrush ImageSource="/GRBM;component/Resource/Image/bc_usermng.png"/>
+                            <ImageBrush ImageSource="/宝坻区地下水资源信息管理系统 - 后台管理;component/Resource/Image/bc_usermng.png"/>
                         </Button.Background>
                         <TextBlock Text="用户管理" FontSize="24" Margin="0,200,0,0"/>
                     </Button>
