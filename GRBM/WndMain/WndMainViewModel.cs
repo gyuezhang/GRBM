@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using GRModel;
 using GRSocket;
 using MaterialDesignThemes.Wpf;
 using Stylet;
@@ -25,7 +26,7 @@ namespace GRBM
         }
 
         #region SocketHandler
-        private void GRSocketHandler_ConnState(GRUtil.RES_STATE state)
+        private void GRSocketHandler_ConnState(E_ResState state)
         {
             App.Current.Dispatcher.Invoke((Action)(() =>
             {

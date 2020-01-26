@@ -25,16 +25,16 @@ namespace GRBM
 
         #region SocketHandler
 
-        private void GRSocketHandler_addDept(RES_STATE state)
+        private void GRSocketHandler_addDept(E_ResState state)
         {
             GRSocketHandler.addDept -= GRSocketHandler_addDept;
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     GRSocketHandler.getDepts += GRSocketHandler_getDepts;
                     GRSocketAPI.GetDepts();
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("添加部门失败");
                     break;
                 default:
@@ -42,16 +42,16 @@ namespace GRBM
             }
         }
 
-        private void GRSocketHandler_delDept(RES_STATE state)
+        private void GRSocketHandler_delDept(E_ResState state)
         {
             GRSocketHandler.delDept -= GRSocketHandler_delDept;
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     GRSocketHandler.getDepts += GRSocketHandler_getDepts;
                     GRSocketAPI.GetDepts();
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("删除部门失败");
                     break;
                 default:
@@ -59,16 +59,16 @@ namespace GRBM
             }
         }
 
-        private void GRSocketHandler_edtDept(RES_STATE state)
+        private void GRSocketHandler_edtDept(E_ResState state)
         {
             GRSocketHandler.edtDept -= GRSocketHandler_edtDept;
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     GRSocketHandler.getDepts += GRSocketHandler_getDepts;
                     GRSocketAPI.GetDepts();
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("编辑部门失败");
                     break;
                 default:
@@ -76,15 +76,15 @@ namespace GRBM
             }
         }
 
-        private void GRSocketHandler_getDepts(RES_STATE state, List<string> depts)
+        private void GRSocketHandler_getDepts(E_ResState state, List<string> depts)
         {
             GRSocketHandler.getDepts -= GRSocketHandler_getDepts;
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     deptLst = depts;
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("获取部门列表失败");
                     break;
                 default:
@@ -92,16 +92,16 @@ namespace GRBM
             }
         }
 
-        private void GRSocketHandler_addUser(RES_STATE state)
+        private void GRSocketHandler_addUser(E_ResState state)
         {
             GRSocketHandler.addUser -= GRSocketHandler_addUser;
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     GRSocketHandler.getUsers += GRSocketHandler_getUsers;
                     GRSocketAPI.GetUsers();
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("添加用户失败");
                     break;
                 default:
@@ -109,16 +109,16 @@ namespace GRBM
             }
         }
 
-        private void GRSocketHandler_delUser(RES_STATE state)
+        private void GRSocketHandler_delUser(E_ResState state)
         {
             GRSocketHandler.delUser -= GRSocketHandler_delUser;
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     GRSocketHandler.getUsers += GRSocketHandler_getUsers;
                     GRSocketAPI.GetUsers();
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("删除用户失败");
                     break;
                 default:
@@ -126,16 +126,16 @@ namespace GRBM
             }
         }
 
-        private void GRSocketHandler_edtUser(RES_STATE state)
+        private void GRSocketHandler_edtUser(E_ResState state, C_User user)
         {
             GRSocketHandler.edtUser -= GRSocketHandler_edtUser;
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     GRSocketHandler.getUsers += GRSocketHandler_getUsers;
                     GRSocketAPI.GetUsers();
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("编辑用户失败");
                     break;
                 default:
@@ -143,15 +143,15 @@ namespace GRBM
             }
         }
 
-        private void GRSocketHandler_getUsers(RES_STATE state, List<C_User> users)
+        private void GRSocketHandler_getUsers(E_ResState state, List<C_User> users)
         {
             GRSocketHandler.getUsers -= GRSocketHandler_getUsers;
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     userLst = users;
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("获取用户列表失败");
                     break;
                 default:

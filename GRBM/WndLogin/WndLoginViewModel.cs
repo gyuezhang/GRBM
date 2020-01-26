@@ -1,4 +1,5 @@
 ﻿using System;
+using GRModel;
 using GRSocket;
 using GRUtil;
 using MaterialDesignThemes.Wpf;
@@ -17,17 +18,17 @@ namespace GRBM
             GRSocketHandler.ConnState += GRSocketHandler_ConnState;
             GRSocketHandler.adminLogin += GRSocketHandler_adminLogin;
 
-            ipBd = BMCfg.GetIp();
+            ipBd = C_BmCfg.GetIp();
             GRSocket.GRSocket.Conn(ipBd);
         }
 
         #region SocketHandler
 
-        private void GRSocketHandler_adminLogin(RES_STATE state)
+        private void GRSocketHandler_adminLogin(E_ResState state)
         {
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     messageQueueBd.Enqueue("登录成功");
                     GRSocketHandler.ConnState -= GRSocketHandler_ConnState;
                     GRSocketHandler.adminLogin -= GRSocketHandler_adminLogin;
@@ -38,7 +39,7 @@ namespace GRBM
                         this.RequestClose();
                     }));
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     messageQueueBd.Enqueue("密码错误");
                     break;
                 default:
@@ -46,15 +47,15 @@ namespace GRBM
             }
         }
 
-        private void GRSocketHandler_ConnState(RES_STATE state)
+        private void GRSocketHandler_ConnState(E_ResState state)
         {
             switch (state)
             {
-                case RES_STATE.OK:
-                    BMCfg.SetIp(ipBd);
+                case E_ResState.OK:
+                    C_BmCfg.SetIp(ipBd);
                     messageQueueBd.Enqueue("已成功连接到服务器");
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     break;
                 default:
                     break;
