@@ -11,6 +11,7 @@ namespace GRBM
             DeptMng,
             UserMng,
         LogMng,
+        AnmMng,
         Setting,
             Setting_AdminResetPwd,
     }
@@ -82,6 +83,8 @@ namespace GRBM
                     return "用户管理";
                 case E_Page.LogMng:
                     return "日志管理";
+                case E_Page.AnmMng:
+                    return "公告管理";
                 case E_Page.Setting:
                     return "设置";
                 case E_Page.Setting_AdminResetPwd:
@@ -105,6 +108,8 @@ namespace GRBM
                     return PackIconKind.PersonEdit;
                 case E_Page.LogMng:
                     return PackIconKind.DateRange;
+                case E_Page.AnmMng:
+                    return PackIconKind.NewspaperVariantMultiple;
                 case E_Page.Setting:
                     return PackIconKind.Settings;
                 case E_Page.Setting_AdminResetPwd:

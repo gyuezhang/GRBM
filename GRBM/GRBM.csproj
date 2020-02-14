@@ -169,6 +169,10 @@
       <DependentUpon>CtrlPageBarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CtrlPageBar\CtrlPageBarViewModel.cs" />
+    <Compile Include="PageAnm\PageAnmView.xaml.cs">
+      <DependentUpon>PageAnmView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageAnm\PageAnmViewModel.cs" />
     <Compile Include="PageDashboard\PageDashboardView.xaml.cs">
       <DependentUpon>PageDashboardView.xaml</DependentUpon>
     </Compile>
@@ -245,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CtrlPageBar\CtrlPageBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageAnm\PageAnmView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

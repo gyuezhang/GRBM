@@ -60,6 +60,9 @@ namespace GRBM
                 case E_Page.LogMng:
                     itemsBd.Add(new C_AddrsBarItem(E_Page.LogMng));
                     break;
+                case E_Page.AnmMng:
+                    itemsBd.Add(new C_AddrsBarItem(E_Page.AnmMng));
+                    break;
                 case E_Page.Setting:
                     itemsBd.Add(new C_AddrsBarItem(E_Page.Setting));
                     break;

@@ -107,6 +107,10 @@ namespace GRBM
                     menuBtnIndexBd = 5;
                     mainVmBd = new PageLogMngViewModel(this);
                     break;
+                case E_Page.AnmMng:
+                    menuBtnIndexBd = 7;
+                    mainVmBd = new PageAnmViewModel(this);
+                    break;
                 case E_Page.Setting:
                     menuBtnVisibilityBd = Visibility.Hidden;
                     settingBtnVisibilityBd = Visibility.Visible;
