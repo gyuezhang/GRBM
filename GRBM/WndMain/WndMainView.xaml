@@ -261,10 +261,15 @@
                         <Button Grid.Row="3" Style="{StaticResource MenuBtn}" ToolTip="组织管理" Command="{s:Action MenuBtnCmd}" CommandParameter="GroupMng">
                             <materialDesign:PackIcon Kind="AccountsGroup" Height="36" Width="36" Margin="-10" Foreground="White"/>
                         </Button>
-                        <Button Grid.Row="5" Style="{StaticResource MenuBtn}" ToolTip="日志管理" Command="{s:Action MenuBtnCmd}" CommandParameter="LogMng">
-                            <materialDesign:PackIcon Kind="DateRange" Height="36" Width="36" Margin="-10" Foreground="White"/>
-                        </Button>
                         <Border Grid.Row="4" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
+                        <Button Grid.Row="5" Style="{StaticResource MenuBtn}" ToolTip="日志管理" Command="{s:Action MenuBtnCmd}" CommandParameter="LogMng">
+                            <materialDesign:PackIcon Kind="Paperclip" Height="36" Width="36" Margin="-10" Foreground="White"/>
+                        </Button>
+                        <Border Grid.Row="6" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
+                        <Button Grid.Row="7" Style="{StaticResource MenuBtn}" ToolTip="公告管理" Command="{s:Action MenuBtnCmd}" CommandParameter="AnmMng">
+                            <materialDesign:PackIcon Kind="NewspaperVariantMultiple" Height="36" Width="36" Margin="-10" Foreground="White"/>
+                        </Button>
+
                     </Grid>
                     <Border Grid.Row="2" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>
 

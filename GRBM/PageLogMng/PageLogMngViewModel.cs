@@ -20,16 +20,16 @@ namespace GRBM
 
         #region SocketHandler
 
-        private void GRSocketHandler_getLogs(RES_STATE state, List<C_Log> logs)
+        private void GRSocketHandler_getLogs(E_ResState state, List<C_Log> logs)
         {
             GRSocketHandler.getLogs -= GRSocketHandler_getLogs;
 
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     pageBarVmBd.Init(logs);
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("获取日志失败");
                     break;
                 default:

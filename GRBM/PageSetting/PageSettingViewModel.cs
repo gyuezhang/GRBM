@@ -1,4 +1,5 @@
-﻿using GRSocket;
+﻿using GRModel;
+using GRSocket;
 using GRUtil;
 using Stylet;
 using System;
@@ -16,15 +17,15 @@ namespace GRBM
 
         #region SocketHandler
 
-        private void GRSocketHandler_adminResetPwd(RES_STATE state)
+        private void GRSocketHandler_adminResetPwd(E_ResState state)
         {
             GRSocketHandler.adminResetPwd -= GRSocketHandler_adminResetPwd;
             switch (state)
             {
-                case RES_STATE.OK:
+                case E_ResState.OK:
                     wndMainVM.messageQueueBd.Enqueue("重置密码成功，建议尽快重新登录");
                     break;
-                case RES_STATE.FAILED:
+                case E_ResState.FAILED:
                     wndMainVM.messageQueueBd.Enqueue("重置密码失败");
                     break;
                 default:
